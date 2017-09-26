@@ -81,7 +81,7 @@ def read_train(path):
                         s_label[-1]['end'] += 1 + len(l)
                     s_text.append(l)
                     index += len(l) + 1
-                line = f.readline()
+            line = f.readline()
         out = []
         for label, text, intent in zip(a_labels, a_texts, a_intents):
             out.append({
@@ -106,6 +106,8 @@ for t in corpora:
 out = {
     'sentences': co
 }
+
+print(len(co))
 
 with open('ATIS_with_intent.json', 'w') as f:
     json.dump(out, f, indent=2)
